@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Email confirmed · HireNow</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0891B2; --deep: #14324A; --grad-start: #0B7F99; --tint: #DCF1F6;
+    --bg: #F3F6F5; --card: #FFFFFF; --border: #E6EDEF; --text: #12303C; --muted: #6A7C84;
+    --sun: #F5A524; --cream: #FFF1D2; --cream-ink: #7A4300; --danger: #C0392B; --danger-tint: #FBEAE6;
+    --shadow: 0 8px 22px rgba(18, 48, 60, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0D1E28; --card: #14293A; --border: #22394A; --text: #E8F1F4; --muted: #9AB0B8;
+      --tint: #10394A; --cream: #3A2A10; --cream-ink: #FFD48A; --danger-tint: #3D1F1B; --danger: #F08A7E;
+      --shadow: 0 8px 22px rgba(0, 0, 0, .35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; background: var(--bg); color: var(--text);
+    font: 400 15px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(160deg, var(--grad-start), var(--primary));
+    padding: 28px 16px 96px; color: #fff;
+  }
+  .brand { max-width: 440px; margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+  .brand svg { width: 36px; height: 36px; border-radius: 10px; box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
+  .brand span { font: 800 19px/1 "Plus Jakarta Sans", Inter, sans-serif; letter-spacing: -.2px; }
+  main { max-width: 440px; margin: -72px auto 0; padding: 0 16px 40px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 22px;
+    box-shadow: var(--shadow); padding: 32px 24px 28px; text-align: center;
+  }
+  .badge {
+    width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 20px;
+    display: grid; place-items: center; background: var(--tint); color: var(--primary);
+  }
+  .badge svg { width: 38px; height: 38px; }
+  .is-warn .badge { background: var(--cream); color: var(--cream-ink); }
+  .is-error .badge { background: var(--danger-tint); color: var(--danger); }
+  h1 { font: 800 24px/32px "Plus Jakarta Sans", Inter, sans-serif; letter-spacing: -.3px; margin: 0 0 10px; color: var(--text); }
+  p { margin: 0 auto; max-width: 34ch; color: var(--muted); }
+  .steps { text-align: left; margin: 22px 0 0; padding: 16px; border-radius: 16px; background: var(--bg); list-style: none; counter-reset: s; }
+  .steps li { counter-increment: s; display: flex; gap: 12px; align-items: flex-start; color: var(--text); font-size: 14px; line-height: 20px; }
+  .steps li + li { margin-top: 12px; }
+  .steps li::before {
+    content: counter(s); flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--primary); color: #fff; font: 600 12px/22px Inter, sans-serif; text-align: center;
+  }
+  .btn {
+    display: flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 24px;
+    border-radius: 999px; background: var(--primary); color: #fff; text-decoration: none;
+    font: 600 16px/1 Inter, sans-serif;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+  .hint { margin-top: 12px; font-size: 13px; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px; }
+  footer a { color: inherit; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand">
+      <svg viewBox="0 0 1024 1024" aria-hidden="true">
+        <rect width="1024" height="1024" fill="#0891B2"/>
+        <path d="M328 360V696M328 520H696V696" fill="none" stroke="#fff" stroke-width="144" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="696" cy="272" r="88" fill="#FFAF22"/>
+      </svg>
+      <span>HireNow</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" id="card" aria-live="polite">
+      <div class="badge" id="badge"></div>
+      <h1 id="title">Email confirmed</h1>
+      <p id="message">Thank you! Your email address is confirmed.</p>
+      <ol class="steps" id="steps"></ol>
+      <a class="btn" id="open-app" href="manushomlojobmarketplace://account/verify" hidden>Open HireNow</a>
+      <p class="hint" id="hint" hidden>On a computer? Just open HireNow on your phone.</p>
+    </section>
+    <footer>HireNow · <a href="https://hirenowjobs.com">hirenowjobs.com</a></footer>
+  </main>
+
+<script>
+(function () {
+  var icons = {
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>',
+    alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><path d="M12 16.5h.01"/><circle cx="12" cy="12" r="9"/></svg>'
+  };
+  var newLink = ['Open the HireNow app.', 'Go to Verify your account and tap “Send the link again”.', 'Open the newest email from HireNow and tap “Confirm my email”.'];
+  var states = {
+    confirmed: {
+      tone: '', icon: 'check', title: 'Email confirmed',
+      message: 'Thank you! Your email address is confirmed. You can now post jobs on HireNow.',
+      steps: ['Go back to the HireNow app.', 'Tap “I confirmed it” on the Verify your account screen.'],
+      openApp: 'Open HireNow'
+    },
+    expired: {
+      tone: 'is-warn', icon: 'clock', title: 'This link has expired',
+      message: 'Confirmation links work once and only for 48 hours. Here’s how to get a new one:',
+      steps: newLink, openApp: 'Open HireNow'
+    },
+    invalid: {
+      tone: 'is-warn', icon: 'link', title: 'This link isn’t complete',
+      message: 'Part of the link may be missing. Tap the button in the email instead of copying the link, or get a new one:',
+      steps: newLink, openApp: 'Open HireNow'
+    },
+    error: {
+      tone: 'is-error', icon: 'alert', title: 'Something went wrong',
+      message: 'We couldn’t confirm your email just now. Please try the link again in a few minutes.',
+      steps: [], openApp: ''
+    }
+  };
+  var key = new URLSearchParams(location.search).get('status');
+  // Only the server's redirect says "confirmed"; anything else is treated as an incomplete link.
+  var s = states[key] || states.invalid;
+  var card = document.getElementById('card');
+  if (s.tone) card.classList.add(s.tone);
+  document.getElementById('badge').innerHTML = icons[s.icon];
+  document.getElementById('title').textContent = s.title;
+  document.getElementById('message').textContent = s.message;
+  document.title = s.title + ' · HireNow';
+  var list = document.getElementById('steps');
+  list.hidden = !s.steps.length;
+  s.steps.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; list.appendChild(li); });
+  var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (s.openApp) {
+    var btn = document.getElementById('open-app');
+    btn.textContent = s.openApp;
+    btn.hidden = !mobile;
+    document.getElementById('hint').hidden = mobile;
+  }
+})();
+</script>
+</body>
+</html>
